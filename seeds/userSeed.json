@@ -1,0 +1,22 @@
+[
+    {
+        "username": "SeveralHearts",
+        "email": "supergr8@test.com",
+        "password": "password123"
+    },
+    {
+        "username": "DeezBeezKneez",
+        "email": "beesrkewl@test.com",
+        "password": "p@ssword12"
+    },
+    {
+        "username": "Codeyg12",
+        "email": "codey.gallup@test.com",
+        "password": "mypassword"
+    },
+    {
+        "username": "RealTonyHawk",
+        "email": "nottonyhawk@test.com",
+        "password": "skateboard"
+    }
+]

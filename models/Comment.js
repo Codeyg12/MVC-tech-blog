@@ -17,6 +17,7 @@ Comment.init(
       references: {
         model: "user",
         key: "id",
+        unique: false
       },
     },
     post_id: {
@@ -25,6 +26,7 @@ Comment.init(
       references: {
         model: "post",
         key: "id",
+        unique: false
       },
     },
     comment_input: {
