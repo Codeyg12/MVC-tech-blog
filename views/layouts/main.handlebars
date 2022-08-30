@@ -10,6 +10,21 @@
     />
 </head>
 <body>
+  <nav>
+    <ul>
+      <li><a href="/">Home</a></li>
+      {{if loggedIn}}
+      <li><a href="/"></a></li>
+    </ul>
+  </nav>
+  {{!-- <div> --}}
+    <h1>Tech Talk</h1>
+  {{!-- </div> --}}
+  <main>
+    {{{body}}}
+  </main>
     
+    <script src="/public/js/login.js"></script>
+    <script src="/public/js/logout.js"></script>
 </body>
 </html>
