@@ -3,17 +3,22 @@ const express = require("express");
 const session = require("express-session");
 const exphbs = require("express-handlebars");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
+require('dotenv').config()
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
-const helpers = require("./utils");
+const helpers = require("./utils/helpers");
 
 const app = express();
-const PORT = process.env.PORT || 3306;
+const PORT = process.env.PORT || 3305;
+
+const hbs = exphbs.create({ helpers });
 
 const sess = {
   secret: "Super duper secret",
-  cookie: {},
+  cookie: {
+    maxAge: 24 * 60 * 60 * 1000
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -22,8 +27,6 @@ const sess = {
 };
 
 app.use(session(sess));
-
-const hbs = exphbs.create({ helpers });
 
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");

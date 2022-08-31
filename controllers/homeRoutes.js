@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
 
     const posts = everyPost.map((post) => post.get({ plain: true }));
 
-    res.render("homepage", {
+    res.render("main", {
       posts,
       loggedIn: req.session.loggedIn,
     });

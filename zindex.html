@@ -1,33 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Talk</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <link rel="stylesheet" href="./public/css/styles.css" />
-  </head>
-  <body>
-    <nav class="navbar mt-3 has-background-grey-lighter">
-      <h1 class="title is-1 has-text-centered ml-5 mt-3">Tech Talk</h1>
-      <a class="navbar-item navbar-start ml-5 is-size-4" href="/">Home</a>
 
-      <!-- <a class="navbar-item is-size-4" href="/dashboard">Dashboard</a>
-      <a class="navbar-item navbar-end mr-5 is-size-4" id="logout" href="#">
-        Logout
-      </a> -->
-      <a class="navbar-item navbar-end mr-5 is-size-4" href="/login">Login/Sign Up</a>
-    </nav>
-    <main>
-        <div class="mt-5">
-            <h2 class="title has-text-centered is-size-1">Welcome to Tech Talk!</h2>
-            <h3 class="subtitle has-text-centered is-size-2">Here at Tech Talk we talk all things tech. To begin posting or viewing our content sign up, which will always be free, or if you already have an account sign in!</h3>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Talk</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  <link rel="stylesheet" href="./public/css/styles.css" />
+</head>
+
+<body>
+  <nav class="navbar mt-3 has-background-grey-lighter">
+    <h1 class="title is-1 has-text-centered ml-5 mt-3">Tech Talk</h1>
+    <a class="navbar-item navbar-start ml-5 is-size-4" href="/">Home</a>
+
+    <a class="navbar-item is-size-4" href="/dashboard">Dashboard</a>
+    <a class="navbar-item navbar-end mr-5 is-size-4" id="logout" href="#">
+      Logout
+    </a>
+  </nav>
+  <main>
+    <div class="section is-medium">
+      <div class="section has-text-centered title">
+        <h1>Sign Up</h1>
+      </div>
+      <form id="loginForm">
+        <div class="section">
+          <label for="nameSign" class="is-size-4">Username</label>
+          <input type="text" class="input">
+      </div>
+        <div class="section">
+          <label for="emailSign" class="is-size-4">Email</label>
+          <input type="text" class="input" placeholder="example@test.com">
         </div>
-    </main>
-  </body>
+        <div class="section">
+          <label for="passSign" class="is-size-4">Password</label>
+          <input type="text" class="input">
+        </div>
+        <button type="submit" class="button is-fullwidth">Signup</button>
+      </form>
+      <div>
+        <p>Already have an account? <a href="/singup">Sign in here</a></p>
+      </div>
+  </main>
+</body>
+
 </html>
 
 <!--ALL VIEW FINISH DASHROUTES PUBLIC JS POSTING-->
