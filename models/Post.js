@@ -15,9 +15,14 @@ Post.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    post_input: {
+    content: {
       type: DataTypes.TEXT,
       allowNull: false,
+    },
+    date_created: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -29,7 +34,7 @@ Post.init(
   },
   {
     sequelize,
-    timestamps: true, 
+    timestamps: false, 
     freezeTableName: true,
     underscored: true,
     modelName: "post",
