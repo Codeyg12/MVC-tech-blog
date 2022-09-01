@@ -1,0 +1,24 @@
+{{#each posts}}
+<a href="/dashboard/blurb/{{id}}">
+<div>
+    <h3>{{title}}</h3>
+    <p>{{post_input}}</p>
+    <p>On: {{createdAt}}</p>
+</div>
+</a>
+{{/each}}
+
+<h3>Add Post</h3>
+<form id="postForm">
+    <div>
+        <label for="postTitle">Title</label>
+        <input type="text" id="postTitle">
+    </div>
+    <div>
+        <label for="postContent">Post</label>
+        <textarea name="postContent" id="postContent"></textarea>
+        <button class="button" type="submit">Post</button>
+    </div>
+</form>
+
+<script src="/public/js/posting.js"></script>
