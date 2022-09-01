@@ -11,7 +11,7 @@ router.get("/", withAuth, async (req, res) => {
     });
 
     const posts = userPosts.map((post) => post.get({ plain: true }));
-    res.render("dashboardPosts", {
+    res.render("dashboard", {
       posts,
       loggedIn: req.session.loggedIn,
     });
@@ -20,4 +20,18 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-module.exports = router
+router.get("/update/:id", withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    const soloPost = postData.get({ plain: true });
+
+    res.render("editing", {
+      soloPost,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;

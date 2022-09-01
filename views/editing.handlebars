@@ -1,0 +1,20 @@
+<div id="postId" data-postId="{{soloPost.id}}">
+    <h3>Edit Post</h3>
+    <form id="editForm">
+        <div>
+            <label for="postingTitle">Title</label>
+            <input type="text" name="postingTitle" id="pTitle" value="{{soloPost.title}}">
+        </div>
+        <div>
+            <label for="postingContent">Post</label>
+            <textarea name="postingContent" id="pContent">{{soloPost.post_input}}</textarea>
+            <button class="button" type="submit">Update Post</button>
+        </div>
+    </form>
+    <div>
+        <button type="button" id="deletePost" class="button">Delete Post</button>
+    </div>
+</div>
+
+<script src="/public/js/posting.js"></script>
+

@@ -20,22 +20,8 @@
     <a class="navbar-item navbar-end mr-5 is-size-4" href="/login">Login/Sign Up</a>
     {{/if}}
   </nav>
-  <h1>Tech Talk</h1>
   <main>
-    {{#if loggedIn}}
     {{{body}}}
-    {{else}}
-    <div class="mt-5">
-      <h2 class="title has-text-centered is-size-1">Welcome to Tech Talk!</h2>
-      <h3 class="subtitle has-text-centered is-size-2">Here at Tech Talk we
-        talk all things tech. To begin posting or viewing our content sign
-        up, which will always be free, or if you already have an account
-        sign in!</h3>
-    </div>
-    {{/if}}
-
-{{!-- MAKE A POST BUTTON FOR LOGGEDIN --}}
-
   </main>
 
   {{#if loggedIn}}
