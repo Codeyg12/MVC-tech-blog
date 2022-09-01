@@ -1,32 +1,26 @@
 [
     {
         "title": "Herokus free plan",
-        "post_input": "Don't forget Herokus free plan is going away! Start searching for a replacement or get that wallet ready.",
-        "user_id": 1
+        "post_input": "Don't forget Herokus free plan is going away! Start searching for a replacement or get that wallet ready."
     },
     {
         "title": "We just launched Heroicons v2.0",
-        "post_input": "Heroicons are hand-crafted SVG icons from the makers of Tailwind CSS. The new version 2.0 features 260 icons redrawn from scratch with a thinner 1.5px stroke and a new 24px solid set. Heroicons are available as first-party React and Vue libraries and official Figma components.",
-        "user_id": 3
+        "post_input": "Heroicons are hand-crafted SVG icons from the makers of Tailwind CSS. The new version 2.0 features 260 icons redrawn from scratch with a thinner 1.5px stroke and a new 24px solid set. Heroicons are available as first-party React and Vue libraries and official Figma components."
     },
     {
         "title": "Milvus",
-        "post_input": "Milvus is an open-source vector database built to power embedding similarity search and AI applications. It makes unstructured data search more accessible and provides a consistent user experience regardless of the deployment environment. All components in Milvus are stateless to enhance elasticity and flexibility.",
-        "user_id": 2
+        "post_input": "Milvus is an open-source vector database built to power embedding similarity search and AI applications. It makes unstructured data search more accessible and provides a consistent user experience regardless of the deployment environment. All components in Milvus are stateless to enhance elasticity and flexibility."
     },
     {
         "title": "Netflixs mobile games are growing, and so are its gaming ambitions",
-        "post_input": "It is estimated that around 1.7 million people are playing Netflix's mobile games daily. The company has yet to release a true blockbuster game, but its efforts are on an upward trajectory. Netflix's plans may include building its own cloud gaming infrastructure. It has acquired several game studios to help it expand and better understand the space.",
-        "user_id": 2
+        "post_input": "It is estimated that around 1.7 million people are playing Netflix's mobile games daily. The company has yet to release a true blockbuster game, but its efforts are on an upward trajectory. Netflix's plans may include building its own cloud gaming infrastructure. It has acquired several game studios to help it expand and better understand the space."
     },
     {
         "title": "TikToks In-App Browser Includes Code That Can Monitor Your Keystrokes, Researcher Says",
-        "post_input": "TikTok's in-app browser inserts code that allows the company to monitor user activity on websites. This includes keystrokes and whatever users tap on the page. The tracking makes it possible for TikTok to capture information such as passwords or credit card numbers. TikTok confirmed that the tracking features exist but it claims that it is not using them.",
-        "user_id": 4
+        "post_input": "TikTok's in-app browser inserts code that allows the company to monitor user activity on websites. This includes keystrokes and whatever users tap on the page. The tracking makes it possible for TikTok to capture information such as passwords or credit card numbers. TikTok confirmed that the tracking features exist but it claims that it is not using them."
     },
     {
         "title": "Sonos is reportedly developing a speaker that can beam sounds in almost all directions!",
-        "post_input": "Sonos' new high-end speaker, Optimo 2, will be able to fire sound in nearly all directions, including upwards.",
-        "user_id": 1
+        "post_input": "Sonos' new high-end speaker, Optimo 2, will be able to fire sound in nearly all directions, including upwards."
     }
 ]
