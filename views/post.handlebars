@@ -13,7 +13,7 @@
 </div>
 {{#if (same_user ../loggedIn comment.user_id)}}
 <div>
-    <button class="button" data-id="{{comment.id}}">Delete</button>
+    <button id="commentDelete" class="button" data-id="{{comment.id}}">Delete</button>
 </div>
 {{/if}}
 {{/each}}

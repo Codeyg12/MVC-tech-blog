@@ -1,3 +1,5 @@
+const e = require("express");
+
 const newPostHandler = async (e) => {
   e.preventDefault();
 
@@ -5,7 +7,7 @@ const newPostHandler = async (e) => {
   const content = document.querySelector("#postContent").value.trim();
 
   if (title && content) {
-    await fetch("/api/dashboard", {
+    await fetch("/api/posts", {
       method: "POST",
       body: JSON.stringify({
         title,
@@ -27,11 +29,10 @@ const updatePostHandler = async (e) => {
 
   const title = document.querySelector("#pTitle").value.trim();
   const content = document.querySelector("#pContent").value.trim();
-  const postId = document.querySelector("#postId");
-  const id = postId.getAttribute("data-postId");
+  const id = window.location.pathname.split('/')[3];
 
   if (title && content) {
-    await fetch(`/api/post/${id}`, {
+    await fetch(`/api/posts/${id}`, {
       method: "PUT",
       body: JSON.stringify({
         title,
@@ -40,17 +41,22 @@ const updatePostHandler = async (e) => {
       headers: { "Content-Type": "application/json" },
     });
 
-    document.location.replace("/dashboard");
+    document.location.replace(`/posts/${{id}}`);
   }
 };
 
-const deletePostHandler = async () => {
-  await fetch(`/api/post/${id}`, {
-    method: "DELETE",
+const deletePostHandler = async (e) => {
+  if (e.target.hasAttribute('data-id')) {
+    const id = e.target.getAttribute('data-id')
+
+    await fetch(`/api/posts/${id}`, {
+      method: "DELETE",
+  
   });
 
   document.location.replace("/dashboard");
 };
+}
 
 document
 .querySelector("#postForm")
