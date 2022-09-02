@@ -15,7 +15,7 @@ const signupHandler = async (e) => {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert("Failed to sign up!");
+      alert(response.statusText);
     }
   }
 };
@@ -35,9 +35,8 @@ const loginHandler = async (e) => {
     if (response.ok) {
       document.location.replace("/dashboard");
     } else {
-      alert("Failed to log in!");
+      alert(response.statusText);
     }
-
   }
 };
 
