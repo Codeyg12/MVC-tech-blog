@@ -1,18 +1,18 @@
 {{#each posts as |post|}}
-<div>
+<div class="card">
    <div>
-      <h3>
-         <a href="/post/{{post.id}}"></a>
+      <h3 class="has-text-centered title mt-3">
+         <a href="/post/{{post.id}}">{{title}}</a>
       </h3>
    </div>
-   <div>
+   <div class="my-3 card-content">
+      <p class="has-text-centered subtitle">{{post.content}}</p>
+   </div>
+   <div class="has-text-right my-3 card-content">
       Posted by 
       {{post.user.username}}
       on
       {{format_date post.date_created}}
-   </div>
-   <div>
-      <p>{{post.content}}</p>
    </div>
 </div>
 {{/each}}
