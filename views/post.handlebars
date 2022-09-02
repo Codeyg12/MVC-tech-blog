@@ -1,17 +1,23 @@
 <div>
-    <h1 class="title">{{postData.title}}</h1>
-    <h2 class="subtitle">{{postData.user.username}}</h2>
-    <p>{{postData.post_input}}</p>
-    <p>{{postData.createdAt}}</p>
+    <h1 class="title">{{title}}</h1>
+    <h2 class="subtitle">By: {{user.username}} on {{format_date date_created}}</h2>
+    <p>{{content}}</p>
 </div>
 
-{{#each postData.comments}}
+{{#if comments}}
+{{#each comments as |comment|}}
 <div>
-    <p>{{comment_input}}</p>
+    <p>{{content}}</p>
     <p>From: {{user.username}}</p>
-    <p>At: {{createdAt}}</p>
+    <p>At: {{format_date date_created}}</p>
 </div>
+{{#if (same_user ../loggedIn comment.user_id)}}
+<div>
+    <button class="button" data-id="{{comment.id}}">Delete</button>
+</div>
+{{/if}}
 {{/each}}
+{{/if}}
 
 <form id="commentForm">
     <h3>Add a Comment:</h3>
@@ -20,5 +26,10 @@
         <button type="submit" class="button">Add Comment</button>
     </div>
 </form>
+
+{{#if (same_user loggedIn user.id)}}
+<div>
+    <a href="/post/update/{{id}}"><button class="button">Edit</button></a>
+</div>
 
 <script src="/public/js/comment.js"></script>

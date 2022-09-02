@@ -1,24 +1,37 @@
-{{#each posts}}
-<a href="/dashboard/update/{{id}}">
 <div>
-    <h3>{{title}}</h3>
-    <p>{{post_input}}</p>
-    <p>On: {{createdAt}}</p>
+  <h1>Welcome, {{username}}</h1>
 </div>
-</a>
-{{/each}}
 
-<h3>Add Post</h3>
-<form id="postForm">
+<div>
+  <h3>Add Post</h3>
+  <form id="postForm">
     <div>
-        <label for="postTitle">Title</label>
-        <input type="text" id="postTitle">
+      <label for="postTitle">Title</label>
+      <input type="text" id="postTitle" />
     </div>
     <div>
-        <label for="postContent">Post</label>
-        <textarea name="postContent" id="postContent"></textarea>
-        <button class="button" type="submit">Post</button>
+      <label for="postContent">Post</label>
+      <textarea name="postContent" id="postContent"></textarea>
     </div>
-</form>
+    <div>
+      <button class="button" type="submit">Post</button>
+    </div>
+  </form>
+</div>
 
-<script src="/public/js/posting.js"></script>
+<div>
+  <h3>Previous Posts</h3>
+  {{#if posts.length}}
+    {{#each posts as |post|}}
+      <div>
+        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+      </div>
+      <div>
+        <a href="/post/update/{{post.id}}"><button class="button">Edit Post</button></a>
+      </div>
+      <div>
+        <button class="button" data-id="{{post.id}}">Delete</button>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
