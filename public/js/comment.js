@@ -3,6 +3,7 @@ const newComment = async (e) => {
 
   const commentInput = document.querySelector("#commentInput").value.trim();
   const currentPost = window.location.pathname.split("/")[2];
+  console.log(currentPost)
 
   if (commentInput) {
     const response = await fetch("/api/comments", {
@@ -40,6 +41,6 @@ const deleteComment = async (e) => {
 
 document.querySelector("#commentForm").addEventListener("submit", newComment);
 
-document
-  .querySelector("#commentDelete")
-  .addEventListener("click", deleteComment);
+// document
+//   .querySelector("#commentDelete")
+//   .addEventListener("click", deleteComment);

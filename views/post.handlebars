@@ -1,15 +1,25 @@
-<div>
+<div class="section has-text-centered card">
     <h1 class="title">{{title}}</h1>
-    <h2 class="subtitle">By: {{user.username}} on {{format_date date_created}}</h2>
-    <p>{{content}}</p>
+    <p class="subtitle">By:
+        {{post.user.username}}
+        on
+        {{format_date date_created}}</p>
+    <p class="is-size-4 card-content">{{content}}</p>
 </div>
 
 {{#if comments}}
 {{#each comments as |comment|}}
-<div>
-    <p>{{content}}</p>
-    <p>From: {{user.username}}</p>
-    <p>At: {{format_date date_created}}</p>
+<div class="has-text-centered section">
+    <div>
+        <h2 class="subtitle is-size-3">Comments</h2>
+    </div>
+    <p class="card-content">{{content}}</p>
+    <div>
+        <p class="has-text-right">From:
+            {{user.username}}
+            At:
+            {{format_date date_created}}</p>
+    </div>
 </div>
 {{#if (same_user loggedIn comment.user_id)}}
 <div>
@@ -19,10 +29,10 @@
 {{/each}}
 {{/if}}
 
-<form id="commentForm">
+<form class="section" id="commentForm">
     <h3>Add a Comment:</h3>
     <div>
-        <textarea name="commentInput" id="commentInput" placeholder="Start comment here..."></textarea>
+        <textarea class="textarea" id="commentInput" placeholder="Start comment here..."></textarea>
         <button type="submit" class="button">Add Comment</button>
     </div>
 </form>
@@ -33,4 +43,4 @@
 </div>
 {{/if}}
 
-<script src="./js/comment.js"></script>
+<script src="/js/comment.js"></script>
