@@ -1,39 +1,45 @@
 <div>
-  <h1>Welcome, {{username}}</h1>
+  <h1 class="has-text-centered title mt-3">Welcome, {{username}}</h1>
 </div>
 
-<div>
-  <h3>Add Post</h3>
-  <form id="postForm">
-    <div>
-      <label for="postTitle">Title</label>
-      <input type="text" id="postTitle" />
-    </div>
-    <div>
-      <label for="postContent">Post</label>
-      <textarea name="postContent" id="postContent"></textarea>
-    </div>
-    <div>
-      <button class="button" type="submit">Post</button>
-    </div>
-  </form>
-</div>
+<section class="section">
+  <div class="has-text-centered">
+    <h3 class="title is-size-4">Previous Posts</h3>
+    {{#if posts.length}}
+      {{#each posts as |post|}}
+        <div class="columns">
+          <div class="column">
+            <h4 class="subtitle"><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+          </div>
+          <div class="column">
+            <a href="/post/update/{{post.id}}"><button class="button is-offset-8 is-info">Edit Post</button></a>
+          </div>
+          <div class="column">
+            <button class="button is-offset-10 is-danger" data-id="{{post.id}}">Delete</button>
+          </div>
+        </div>
+      {{/each}}
+    {{/if}}
+  </div>
+</section>
 
-<div>
-  <h3>Previous Posts</h3>
-  {{#if posts.length}}
-    {{#each posts as |post|}}
+<section class="section">
+  <div>
+    <h3 class="has-text-centered title is-size-4">Add Post</h3>
+    <form id="postForm">
       <div>
-        <h4><a href="/post/{{post.id}}">{{post.title}}</a></h4>
+        <label for="postTitle">Title</label>
+        <input class="input" type="text" id="postTitle" />
       </div>
-      <div>
-        <a href="/post/update/{{post.id}}"><button class="button">Edit Post</button></a>
+      <div class="has-text-centered">
+        <label for="postContent">Post</label>
+        <textarea name="postContent" id="postContent" class="textarea"></textarea>
       </div>
-      <div>
-        <button class="button" data-id="{{post.id}}">Delete</button>
+      <div class="has-text-centered">
+        <button class="button mt-4" type="submit">Post</button>
       </div>
-    {{/each}}
-  {{/if}}
-</div>
+    </form>
+  </div>
+</section>
 
-<script src="/public/js/posting.js"></script>
+<script src="./js/posting.js"></script>
