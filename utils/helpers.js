@@ -5,4 +5,7 @@ module.exports = {
     let year = date.getFullYear();
     return `${day}/${month}/${year}`;
   },
+  same_user: (sess_user, list_user) => {
+    return sess_user == list_user;
+  },
 };

@@ -2,24 +2,18 @@
     <h3 class="has-text-centered title mt-4">Edit Post</h3>
     <form id="editForm">
         <div class="section">
-            <label class="subtitle" for="postingTitle">Title</label>
-            <input class="input" type="text" name="postingTitle" id="pTitle" value="{{title}}">
+            <label class="subtitle" for="pTitle">Title</label>
+            <input class="input" type="text" id="pTitle" value="{{title}}" />
         </div>
         <div class="section">
-            <label class="subtitle" for="postingContent">Post</label>
-            <textarea class="textarea" name="postingContent" id="pContent">{{content}}</textarea>
-            
-        </divcla>
+            <label class="subtitle" for="pContent">Post</label>
+            <textarea class="textarea" id="pContent">{{content}}</textarea>
+        </div>
+        <div class="section">
+            <button class="button is-info is-medium is-fullwidth" type="submit">Update
+                Post</button>
+        </div>
     </form>
-    <div class="columns section">
-        <div class="column">
-            <button class="button is-info" type="submit">Update Post</button>
-        </div>
-        <div class="column is-offset-8">
-                <button type="button" id="deletePost" class="button is-danger">Delete Post</button>
-        </div>
-    </div>
 </div>
 
-<script src="./js/posting.js"></script>
-
+<script src="/js/edit.js"></script>

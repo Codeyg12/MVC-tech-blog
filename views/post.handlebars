@@ -11,7 +11,7 @@
     <p>From: {{user.username}}</p>
     <p>At: {{format_date date_created}}</p>
 </div>
-{{#if (same_user ../loggedIn comment.user_id)}}
+{{#if (same_user loggedIn comment.user_id)}}
 <div>
     <button id="commentDelete" class="button" data-id="{{comment.id}}">Delete</button>
 </div>
@@ -31,5 +31,6 @@
 <div>
     <a href="/post/update/{{id}}"><button class="button">Edit</button></a>
 </div>
+{{/if}}
 
 <script src="./js/comment.js"></script>
