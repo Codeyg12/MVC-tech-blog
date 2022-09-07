@@ -1,24 +1,25 @@
 const newComment = async (e) => {
   e.preventDefault();
 
-  const commentInput = document.querySelector("#commentInput").value.trim();
-  const currentPost = window.location.pathname.split("/")[2];
-  console.log(currentPost)
+  const content = document.querySelector("#commentInput").value.trim();
+  const post_id = window.location.pathname.split("/")[2];
 
-  if (commentInput) {
+  console.log({ post_id }, { content })
+
+  if (content) {
     const response = await fetch("/api/comments", {
       method: "POST",
-      body: JSON.stringify({
-        commentInput,
-        currentPost,
-      }),
-      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content, post_id }),
+      headers: {
+        "Content-Type": "application/json",
+      },
     });
-
+    console.log(response.body);
+    console.log(response.bodyUsed)
     if (response.ok) {
-      location.reload();
+      location.reload()
     } else {
-      alert("Failed to post comment!");
+      alert(response.statusText);
     }
   }
 };
@@ -41,6 +42,6 @@ const deleteComment = async (e) => {
 
 document.querySelector("#commentForm").addEventListener("submit", newComment);
 
-// document
-//   .querySelector("#commentDelete")
-//   .addEventListener("click", deleteComment);
+document
+  .querySelector("#commentDelete")
+  .addEventListener("click", deleteComment);

@@ -15,7 +15,7 @@ const newPostHandler = async (e) => {
     });
 
     if (response.ok) {
-      location.reload();
+      location.replace("/dashboard");
     } else {
       alert("Failed to create post!");
     }
@@ -23,21 +23,18 @@ const newPostHandler = async (e) => {
 };
 
 const deletePostHandler = async (e) => {
-  if (e.target.hasAttribute('data-id')) {
-    const id = e.target.getAttribute('data-id')
+  if (e.target.hasAttribute("data-id")) {
+    const id = e.target.getAttribute("data-id");
 
     await fetch(`/api/posts/${id}`, {
       method: "DELETE",
-  
-  });
+    });
 
-  document.location.replace("/dashboard");
+    document.location.replace("/dashboard");
+  }
 };
-}
 
-document
-.querySelector("#postForm")
-.addEventListener("submit", newPostHandler);
+document.querySelector("#postForm").addEventListener("submit", newPostHandler);
 
 document
   .querySelector("#deletePost")

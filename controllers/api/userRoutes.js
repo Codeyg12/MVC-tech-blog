@@ -8,11 +8,11 @@ router.post("/", async (req, res) => {
       email: req.body.email,
       password: req.body.password
     })
-
-    res.session.save(() => {
+console.log("New User Post:", newUser)
+    req.session.save(() => {
       req.session.user_id = newUser.id
       req.session.loggedIn = true;
-
+    
       res.status(200).json(newUser);
     });
   } catch (err) {
