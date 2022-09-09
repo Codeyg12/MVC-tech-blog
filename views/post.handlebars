@@ -17,16 +17,18 @@
     <h2 class="subtitle is-size-3 has-text-centered">Comments</h2>
 </div>
 {{#each comments as |comment|}}
-<div class="has-text-centered card mt-3">
+<div class="has-text-centered card has-background-light my-3">
     <p class="card-content">{{content}}</p>
-    <div class="card-footer">
+    <div class="card-footer mb-3">
         <p class="card-footer-item">From: {{user.username}} </p>
-        <p class="card-footer-item">At:{{format_date date_created}}</p>
+        <p class="card-footer-item">On:{{format_date date_created}}</p>
         {{#if (same_user ../loggedIn comment.user_id)}}
-            <button id="commentDelete" class="card-footer-item button is-ghost has-text-danger" data-id="{{comment.id}}">Delete</button>
+        <button id="commentDelete" class="card-footer-item button is-ghost has-text-danger"
+            data-id="{{comment.id}}">Delete</button>
         {{/if}}
-    </>
+    </div>
 </div>
+<div class="has-background-white py-1"></div>
 {{/each}}
 {{/if}}
 
