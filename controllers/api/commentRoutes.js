@@ -8,8 +8,6 @@ router.post('/', withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-    console.log("New comment:", newComment)
-    console.log("ReqBody:", req.body)
     
     res.status(200).json(newComment);
   } catch (err) {
@@ -25,6 +23,9 @@ router.delete("/:id", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       },
     });
+    console.log(req.params)
+    console.log(req.session)
+    console.log("Comment Data:", commentData)
 
     if (!commentData) {
       res.status(404).json({ message: "No comment with this id" });

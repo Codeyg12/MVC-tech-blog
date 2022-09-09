@@ -9,7 +9,7 @@ router.post("/", async (req, res) => {
       password: req.body.password
     })
 console.log("New User Post:", newUser)
-    req.session.save(() => {
+    req.session.save(() => { 
       req.session.user_id = newUser.id
       req.session.loggedIn = true;
     

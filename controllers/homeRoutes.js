@@ -15,9 +15,9 @@ router.get("/", async (req, res) => {
         },
       ],
     });
-
     const posts = everyPost.map((post) => post.get({ plain: true }));
-
+    posts.reverse()
+    console.log("postComments:", posts[0].comments);
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
@@ -33,23 +33,32 @@ router.get("/post/:id", withAuth, async (req, res) => {
       include: [
         {
           model: User,
+          attributes: ["username"],
         },
         {
           model: Comment,
+          include: {
+            model: User,
+            attributes: ["username"]
+          }
         },
       ],
     });
-
     if (!postData) {
       res.status(404).json({ messgae: "No post found with that id" });
-      return
+      return;
     }
-
+    
     const post = postData.get({ plain: true });
+console.log("Logged:", req.session)
+console.log("SessUser", req.session.user_id)
+console.log("SessLogged", req.session.loggedIn)
+console.log(post)
 
     res.render("post", {
       ...post,
       loggedIn: req.session.loggedIn,
+      loggedIn: req.session.user_id
     });
   } catch (err) {
     res.status(500).json(err);

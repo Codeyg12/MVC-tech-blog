@@ -5,25 +5,28 @@
         on
         {{format_date date_created}}</p>
     <p class="is-size-4 card-content">{{content}}</p>
+    {{#if (same_user loggedIn user_id)}}
+    <div class="has-text-right">
+        <a href="/post/update/{{id}}"><button class="button">Edit</button></a>
+    </div>
+    {{/if}}
 </div>
 
 {{#if comments}}
-    <div>
-        <h2 class="subtitle is-size-3 has-text-centered">Comments</h2>
-    </div>
+<div>
+    <h2 class="subtitle is-size-3 has-text-centered">Comments</h2>
+</div>
 {{#each comments as |comment|}}
 <div class="has-text-centered card mt-3">
     <p class="card-content">{{content}}</p>
-    <div>
-        <p class="has-text-left">From:
-            {{comment.user_id.username}}
-            At:
-            {{format_date date_created}}</p>
-{{#if (same_user loggedIn comment.user_id)}}
-<div class="has-text-right">
-    <button id="commentDelete" class="button" data-id="{{comment.id}}">Delete</button>
-</div>
-{{/if}}
+    <div class="card-footer">
+        <p class="card-footer-item">From: {{user.username}} </p>
+        <p class="card-footer-item">At:{{format_date date_created}}</p>
+        {{#if (same_user loggedIn comment.user_id)}}
+        <div class="has-text-right">
+            <button id="commentDelete" class="button" data-id="{{comment.id}}">Delete</button>
+        </div>
+        {{/if}}
     </div>
 </div>
 {{/each}}
@@ -36,11 +39,5 @@
         <button type="submit" class="button mt-4">Add Comment</button>
     </div>
 </form>
-
-{{#if (same_user loggedIn user.id)}}
-<div>
-    <a href="/post/update/{{id}}"><button class="button">Edit</button></a>
-</div>
-{{/if}}
 
 <script src="/js/comment.js"></script>
