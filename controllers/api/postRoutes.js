@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Post } = require("../../models");
 const withAuth = require("../../utils/auth");
 
+// Creates a new post
 router.post("/", withAuth, async (req, res) => {
   try {
     const newPost = await Post.create({
@@ -15,20 +16,18 @@ router.post("/", withAuth, async (req, res) => {
   }
 });
 
+// Updates user post
 router.put("/:id", withAuth, async (req, res) => {
   try {
     const updatePost = await Post.update(
-      {...req.body, user_id: req.session.user_id },{
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-  });
-
-console.log("reSession:", req.params)
-console.log("ReqParamsId:", req.params.id)
-console.log("reqBody:", req.body)
-console.log("UpdatePost:", updatePost)
+      { ...req.body, user_id: req.session.user_id },
+      {
+        where: {
+          id: req.params.id,
+          user_id: req.session.user_id,
+        },
+      }
+    );
 
     if (!updatePost) {
       res.status(404).json({ message: "No post found with that id" });
@@ -40,6 +39,7 @@ console.log("UpdatePost:", updatePost)
   }
 });
 
+// Delete user post
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const postDelete = await Post.destroy({

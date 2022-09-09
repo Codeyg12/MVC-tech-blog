@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Comment, Post, User } = require("../models");
 const withAuth = require("../utils/auth");
 
+// Pulls all the posts 
 router.get("/", async (req, res) => {
   try {
     const everyPost = await Post.findAll({
@@ -15,9 +16,12 @@ router.get("/", async (req, res) => {
         },
       ],
     });
+
+    // Serialize the data for readability
     const posts = everyPost.map((post) => post.get({ plain: true }));
-    posts.reverse()
-    console.log("postComments:", posts[0].comments);
+    posts.reverse();
+
+    // Pass the info into the template
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
@@ -27,6 +31,7 @@ router.get("/", async (req, res) => {
   }
 });
 
+// Grabs a single post 
 router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -39,8 +44,8 @@ router.get("/post/:id", withAuth, async (req, res) => {
           model: Comment,
           include: {
             model: User,
-            attributes: ["username"]
-          }
+            attributes: ["username"],
+          },
         },
       ],
     });
@@ -48,23 +53,20 @@ router.get("/post/:id", withAuth, async (req, res) => {
       res.status(404).json({ messgae: "No post found with that id" });
       return;
     }
-    
+
     const post = postData.get({ plain: true });
-console.log("Logged:", req.session)
-console.log("SessUser", req.session.user_id)
-console.log("SessLogged", req.session.loggedIn)
-console.log(post)
 
     res.render("post", {
       ...post,
       loggedIn: req.session.loggedIn,
-      loggedIn: req.session.user_id
+      loggedIn: req.session.user_id,
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
+// Renders the dashboard page when the user is signed in
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
     const userInfo = await User.findByPk(req.session.user_id, {
@@ -83,6 +85,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
   }
 });
 
+// Renders a page to update/edit the post
 router.get("/post/update/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -108,6 +111,7 @@ router.get("/post/update/:id", withAuth, async (req, res) => {
   }
 });
 
+// Renders a login page
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
@@ -117,6 +121,7 @@ router.get("/login", (req, res) => {
   }
 });
 
+// Renders a signup page
 router.get("/signup", (req, res) => {
   if (req.session.loggedIn) {
     res.redirect("/dashboard");
