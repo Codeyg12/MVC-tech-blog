@@ -1,3 +1,4 @@
+// Check if the user is logged in or not
 const withAuth = (req, res, next) => {
   if (!req.session.loggedIn) {
     res.redirect("/login");

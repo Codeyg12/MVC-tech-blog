@@ -27,7 +27,10 @@ router.put("/:id", withAuth, async (req, res) => {
         user_id: req.session.user_id,
       }
     })
-
+console.log("reSession:", req.params)
+console.log("ReqParamsId:", req.params.id)
+console.log("reqBody:", req.body)
+console.log("UpdatePost:", updatePost)
     if (!updatePost) {
       res.status(404).json({ message: "No post found with that id" });
       return;

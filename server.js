@@ -31,6 +31,7 @@ const sess = {
 
 app.use(session(sess));
 
+// Linking Express and Handlebars
 app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 

@@ -1,3 +1,4 @@
+// Creates new post with user input
 const newPostHandler = async (e) => {
   e.preventDefault();
 
@@ -22,6 +23,7 @@ const newPostHandler = async (e) => {
   }
 };
 
+// Deletes the post if it belongs to the user
 const deletePostHandler = async (e) => {
   if (e.target.hasAttribute("data-id")) {
     const id = e.target.getAttribute("data-id");
@@ -30,7 +32,7 @@ const deletePostHandler = async (e) => {
       method: "DELETE",
     });
 
-    document.location.replace("/dashboard");
+    location.replace("/dashboard");
   }
 };
 
