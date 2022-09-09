@@ -7,7 +7,7 @@
     <p class="is-size-4 card-content">{{content}}</p>
     {{#if (same_user loggedIn user_id)}}
     <div class="has-text-right">
-        <a href="/post/update/{{id}}"><button class="button">Edit</button></a>
+        <a href="/post/update/{{id}}"><button class="button has-background-info has-text-white">Edit</button></a>
     </div>
     {{/if}}
 </div>
@@ -22,12 +22,10 @@
     <div class="card-footer">
         <p class="card-footer-item">From: {{user.username}} </p>
         <p class="card-footer-item">At:{{format_date date_created}}</p>
-        {{#if (same_user loggedIn comment.user_id)}}
-        <div class="has-text-right">
-            <button id="commentDelete" class="button" data-id="{{comment.id}}">Delete</button>
-        </div>
+        {{#if (same_user ../loggedIn comment.user_id)}}
+            <button id="commentDelete" class="card-footer-item button is-ghost has-text-danger" data-id="{{comment.id}}">Delete</button>
         {{/if}}
-    </div>
+    </>
 </div>
 {{/each}}
 {{/if}}
@@ -36,7 +34,7 @@
     <h3 class="label">Add a Comment:</h3>
     <div>
         <textarea class="textarea" id="commentInput" placeholder="Start comment here..."></textarea>
-        <button type="submit" class="button mt-4">Add Comment</button>
+        <button type="submit" class="button mt-4 has-background-info has-text-white">Add Comment</button>
     </div>
 </form>
 
