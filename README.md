@@ -43,17 +43,27 @@
 
     git@github.com:Codeyg12/MVC-tech-blog.git
 
- 2. install NPM packages
+ 2. Install NPM packages
  ```sh
  npm i
  ```
 
- 3. Run the seeds file 
+3. Start mySQL
+```sh
+mysql -u root -p
+```
+
+4. Add the database and then exit mySQL
+```sh
+source db/schema.sql
+```
+
+ 5. Run the seeds file 
  ```sh
  npm run seed
  ```
 
- 4. Start the server
+ 6. Start the server
  ```sh
  npm start
  ```
