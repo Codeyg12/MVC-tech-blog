@@ -25,7 +25,9 @@
 
   ### Demo
 
-  Follow this [link](https://safe-reaches-93630.herokuapp.com/) to go to the deployed app
+  Follow the link below to go to the deployed app.
+
+  [Tech Talk](https://safe-reaches-93630.herokuapp.com/)
 
   Below is a screenshot from the working server
   ![tech - Copy](https://user-images.githubusercontent.com/103782398/188053375-f53fe257-3518-4606-a542-41afd8dfc122.png)
